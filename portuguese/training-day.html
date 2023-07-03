@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Dia De Treinamento">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/training-day.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+"use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Dia De Treinamento"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+    
+    PAGES["+pyramid"] = 
+        "3lpVocê é um famoso arqueologista recrutado pelo\n" +
+        "1lpgoverno para investigar uma câmara secreta recém\n" +
+        "1lpdescoberta dentro de uma pirâmide egípcia.\n" + 
+        "2lpA câmara é pequena e suas paredes estão cobertas\n" +
+        "1lpcom hieróglifos - alguns nunca vistos antes.\n" +        
+        "2lpNo centro da câmara existe uma grande esfera brilhante\n" +
+        "1lpgirando sem parar, feita de material extraterrestre.\n" +
+        pagePressEnter        
+
+    PAGES["+enter"] = 
+        "4lpApós estudar profundamente os hieróglifos, você sabe\n" +
+        "1lpque a esfera brilhante é um portal para outros mundos,\n" + 
+        "1lpconstruída por um Deus chamado O Mestre Do Labirinto.\n" + 
+        "2lpOK. Deuses não existem. Ele deve ser um maldito alien!\n" +
+        "2lpVocê aprendeu como entrar na esfera brilhante.\n" +
+        "2lpEntão entra nela...\n" +
+        pagePressEnter
+
+    PAGES["+dissolving"] =
+        "1laWoowwww!\n" +
+        "1laO que está acontecendo comigo?\n" +
+        "2laEu estou me dissolvendo!\n" +
+        "6laWOOOWWWWWW!!!!\n" +
+        "2laMeu corpo ficou translúcido!\n" +
+        "2laEspero que ele possa ser sólido novamente.\n"  
+        
+    PAGES["+noise"] =
+        "4lpVocê ouve um murmúrio estranho\n" +
+        "1lpvindo de lugar nenhum.\n" +
+        "5lpMas, de alguma forma, sua mente\n" +
+        "1lpcapta palavras inteligíveis no ruído...\n"
+    
+    PAGES["+mmaster"] =
+        "7lmO Mestre Do Labirinto diz:\n" +
+        "2lmBenvindo ao seu primeiro labirinto, ratinho!\n" +
+        "2lmVamos ver se você consegue escapar.\n" 
+
+    PAGES["+exist"] =
+        "7laEntão, O Mestre Do Labirinto realmente existiu.\n" +
+        "2laE vive ainda.\n" +
+        "2laApareça!\n" 
+
+    PAGES["+nothing"] =
+        "9lpVocê espera por uma resposta... e nada!\n"
+        
+    PAGES["+arrow"] =
+        "9lpPressionando setas no teclado, você mexe o seu avatar.\n"
+
+    PAGES["+speed-oil"] =
+        "1lp\n" + // just jumping
+        "9lpPressione  S  quando quiser usar óleo de velocidade.\n" +
+        "2lpVocê não pode usar quando já está rápido.\n"
+
+    PAGES["+life"] =
+        "9lpVocê começa com 100 pontos de vida.\n" +
+        "2lpEscolha seu caminho com cuidado.\n" +
+        "2lpEvite se machucar sempre que puder.\n"
+
+    PAGES["+bonfire"] =
+        "2lp\n" + // just jumping
+        "9lpA fogueira queima a criatura que pisa nela.\n" +
+        "2lpPermanecer na fogueira não queima de novo a criatura.\n"
+
+    PAGES["+health-potion"] =
+        "1lp\n" + // just jumping
+        "9lpPressione  Barra de Espaço  quando quiser beber poção\n" +
+        "1lpde saúde (recupera até 50 pontos de vida).\n" +
+        "2lpVocê não pode beber quando não está ferido.\n"
+
+    PAGES["+smoke"] =
+        "8lpA fumaça envena a criatura que pisa nela.\n" +
+        "2lpPermanecer na fumaça não envenena de novo a criatura.\n" +
+        "2lpO efeito do veneno diminui até desaparecer.\n"
+
+    PAGES["+antidote-potion"] =
+        "9lpPressione  A  quando quiser beber poção de antídoto.\n" +
+        "2lpVocê não pode beber quando não está envenenado\n" +
+        "1lpou tonto.\n"
+
+    PAGES["+ugly"] =
+        "9laEstou vendo um alien alaranjado!\n" +
+        "2laQue bonitinho!\n"
+
+    PAGES["+mana-potion"] =
+        "6lpPressione  M  quando você quiser beber poção de mana\n" +
+        "1lp(100 pontos de mana).\n" +
+        "2lpMana cria um escudo que absorve todos os danos e\n" +
+        "1lpevita que a criatura fique tonta ou lenta.\n" +
+        "2lpVocê não pode beber poção de mana quando seu escudo\n" +
+        "1lpde mana já tiver 300 pontos.\n"
+
+    PAGES["+diagonal"] =
+        "4lpPasso diagonal entre fogueiras e fumaças:\n" +
+        "2lp1)  pressione e segure  Shift\n" +
+        "1lp2)  pressione e segure as duas teclas de direção certas\n" +
+        "1lp3)  solte apenas  Shift\n" +
+        "3lpSe você estiver confiante, pode tentar sem usar  Shift.\n" +
+        "2lpImportante:  passos diagonais só podem ocorrer quando\n" +
+        "1lpsão realmente necessários.\n"
+}
+    
+main()
+    </script>
+</body>
+</html>

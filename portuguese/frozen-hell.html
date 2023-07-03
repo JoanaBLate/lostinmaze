@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Congelando O Inferno">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/frozen-hell.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+ "use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Congelando O Inferno"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+
+    PAGES["+mmaster"] =
+        "8lmO Mestre do Labirinto diz:\n" +
+        "2lmSaudações...\n" +
+        "2lmEu espero que você aprecie este labirinto!\n"
+
+    PAGES["+guess"] =
+        "1lp\n" + // just jumping
+        "9laAdivinha...\n" +
+        "2laEu estou começando a cansar de você!\n"
+
+    PAGES["+meeting"] =
+        "2laSaudações, Orion!\n" +
+        "2loSaudações, Explorer, meu amigo!\n" +
+        "2laVocê parece estar ocupado.\n" +
+        "1laO que você está fazendo, amigo?\n" +
+        "2loEstou treinando para congelar o inferno.\n" +
+        "2la(Hum...)\n" +
+        "2laOhhh! Estou  impressionado!\n"
+
+    PAGES["+meeting2"] =
+        "5laE por que você quer congelar o inferno, amigo?\n" +
+        "3loPorque minha mãe sempre me disse que eu seria um\n" +
+        "1loadulto bem sucedido no dia em que o inferno congelasse.\n" +
+        "3laHum... (sem comentários).\n"
+
+    PAGES["+step-warn"] =
+        "4laPreciso calcular meus passos cuidadosamente, e\n" +
+        "1lasó beber poções no momento certo.\n" +
+        "5laEspero lembrar como andar em diagonal.\n"
+
+    PAGES["+mana-shield"] =
+        "9laEu adoro escudo de mana!\n"
+
+    PAGES["+west-ok"] =
+        "9laVocê não é tão esperto assim, Mestre do Labirinto!\n"
+
+    PAGES["+north-ok"] =
+        "9laEste setor foi moleza!\n"
+
+    PAGES["+south-ok"] =
+        "8laGostaria que Orion pudesse me ver agora...\n" +
+        "1lae a mãe dele também!\n"
+
+    PAGES["+key-but-hurt"] =
+        "8laDroga!\n" +
+        "2laConsegui a chave,\n" +
+        "1lamas não deveria estar ferido.\n"
+
+    PAGES["+doing-well"] =
+        "8laEmbora eu esteja ferido,\n" +
+        "1lasei que fiz tudo certo até agora.\n"
+
+}
+   
+main()
+    </script>
+</body>
+</html>

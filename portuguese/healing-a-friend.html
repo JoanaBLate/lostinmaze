@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Curando Um Amigo">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/healing-a-friend.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+"use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Curando Um Amigo"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+
+    PAGES["+replacement"] = "Você falhou em salvar um amigo."
+
+    PAGES["+mmaster"] =
+        "7lmO Mestre Do Labirinto diz:\n" +
+        "2lmUma criatura próxima está com problemas.\n" +
+        "2lmAjude-a e ganhe um amigo.\n"
+
+    PAGES["+reply"] =
+        "7laVocê quer controlar minha vida social também?\n"
+    
+    PAGES["+meeting"] =
+        "1loExplorer, me ajude por favor!\n" +
+        "2laCriatura, o que aconteceu?\n" +
+        "2loMeu nome é Orion. Estou muito ferido.\n" +
+        "2loSe eu pisar em uma fogueira de novo, vou morrer.\n" +
+        "2laOh, não!! Como posso ajudar?\n" +
+        "2loEncontre uma maneira de me curar.\n" +
+        "2laFarei o melhor que puder!\n"
+        
+    PAGES["+instruction"] =
+        "1lp\n" + // just jumping
+        "9lpPressione  P  quando quiser lançar uma bolha roxa.\n" +
+        "2lpBolhas roxas têm poder curativo.\n"
+
+    PAGES["+healed"] =
+        "1loOh! Meu amigo,\n" +
+        "1loeu agradeço muito!\n" +
+        "2loAgora é hora de você,\n" +
+        "1loconseguir escapar.\n" +
+        "2loEu vou ficar aqui, descansando um pouco.\n" +
+        "2loAdeus, Explorer.\n" +
+        "1laAdeus, Orion.\n"
+
+    PAGES["+see-well"] =
+        "8laEu vejo um belo poço...\n" +
+        "2lae estou com sede!\n"
+
+    PAGES["+well"] =
+        "5lpEscolha um desejo:\n" +
+        "2lpA) 10 óleos de velocidade\n" +
+        "2lpB)  6 bolhas roxas\n" +
+        "2lpC)  1 poção de saúde\n" +
+        "2lpD)  (escolha depois)\n"
+
+    PAGES["+well2"] =
+        "5lpEscolha um desejo:\n" +
+        "2lpA) 10 poções de antídoto\n" +
+        "2lpB)  6 bolhas roxas\n" +
+        "2lpC)  1 poção de saúde\n" +
+        "2lpD)  (escolha depois)\n"
+}
+    
+main()
+    </script>
+</body>
+</html>

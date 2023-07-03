@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Medo Do Escuro">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/fear-of-the-dark.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+"use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Medo Do Escuro"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+
+    PAGES["+mmaster"] =
+        "6lmO Mestre do Labirinto diz:\n" +
+        "2lmSaudações...\n" +
+        "2lmEspero que você consiga iluminar as trevas!\n"
+
+    PAGES["+afraid"] =
+        "8laPor que?\n" +
+        "2laVocê tem medo do escuro?\n"
+
+    PAGES["+miss-torch"] =
+        "8laEu não deveria prosseguir sem tochas.\n"
+
+    PAGES["+waste-torch"] =
+        "8laEu devo acender a tocha somente quando necessário.\n"
+}
+
+main()
+    </script>
+</body>
+</html>

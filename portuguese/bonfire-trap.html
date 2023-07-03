@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Armadilha Com Fogueiras">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/bonfire-trap.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+"use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Armadilha Com Fogueiras"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+
+    PAGES["+watching"] =
+        "7lmO Mestre do Labirinto diz:\n" +
+        "2lmEu posso estar longe, mas eu enxergo tudo...\n"
+
+    PAGES["+close"] =
+        "7laEntendi...\n" +
+        "2laJá pensou em ficar de olhos fechados?\n"
+}
+
+main()
+    </script>
+</body>
+</html>

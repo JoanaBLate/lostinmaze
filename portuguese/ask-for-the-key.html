@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Peça A Chave">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/ask-for-the-key.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+"use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Peça A Chave"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+
+    PAGES["+mission"] =
+        "9lmO Mestre do Labirinto diz:\n" +
+        "2lmEncontre o zelador desta pequena ilha.\n" +
+        "2lmPeça a ele a chave de madeira.\n"
+
+    PAGES["+reply"] =
+        "9laClaro!\n" +
+        "1laEu adoro seguir ordens de um desconhecido invisível.\n"
+
+    PAGES["+meeting"] =
+        "9laEstou vendo um alien!\n" +
+        "2laTalvez seja com ele que eu deva falar.\n"
+
+    PAGES["+meeting2"] =
+        "7laSaudações!\n" +
+        "2laVocê é o zelador local, eu presumo!\n" +
+        "3la(Humm... ele não responde...\n" +
+        "1laTalvez ele não consiga me ouvir daqui.)\n"
+
+    PAGES["+dead"] =
+        "9laO monstro deixou uma chave de madeira no chão.\n" +
+        "2laEle era o zelador local, como eu corretamente presumi!\n"
+}
+
+main()
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="Perdido no Labirinto - jogo online gratuito de aventura em estilo RPG. Sem download, sem custo, sem registro. Episódio: Noite De Treinamento">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: rgb(0,27,51);
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="/engine.js"></script>
+    <script src="/english/training-night.js"></script>
+    <script src="/portuguese/PORTUGUESE.js"></script>
+    <script>
+"use strict"
+
+function overrideByLanguage() {
+    LANGUAGE = "portuguese"
+    TITLE = "Noite De Treinamento"
+    translateMainPages()
+}
+
+function setEpisodePages() {
+
+    PAGES["+dark"] =
+        "7laOh!  Está escuro aqui...\n"
+
+    PAGES["+sun"] =
+        "7lmThe Maze Master says:\n" +
+        "2lmEu apaguei o sol!\n"
+
+    PAGES["+patience"] =
+        "8laNisto eu posso acreditar...\n" +
+        "2lavocê também apagou minha paciência.\n"
+
+    PAGES["+torch"] =
+        "5lpPressione  T  para acender uma tocha.\n" +
+        "2lpPressione  T  novamente para ampliar a luz dela\n" +
+        "1lp(diminuindo sua durabilidade).\n" +
+        "2lpPressione  T  mais uma vez para apagar a tocha.\n" +
+        "2lpUma tocha dura 120 segundos. Ou 60 segundos com a luz\n" +
+        "1lpampliada.\n"
+
+    PAGES["+amplify"] =
+        "7lpUse sua tocha acesa e com luz  *ampliada*  para dissolver\n" +
+        "1lpo próximo obelisco.\n"
+
+    PAGES["+sword"] =
+        "5lpPressione e *solte*   Z  para atacar com espada.\n" +
+        "2lpIsto ativa o modo de mira:  você pode girar para qualquer\n" +
+        "1lpdireção, incluindo diagonais, sem pressionar Shift.\n" +
+        "2lpQuando o modo de mira termina, o ataque acontece.\n" +
+        "2lpAlvos em movimento sofrem mais dano.\n"
+
+    PAGES["+pickup"] =
+        "3lp\n" + // just jumping
+        "6lpPressione  C  para catar objetos sob seus pés.\n"
+
+    PAGES["+remove"] =
+        "3lp\n" + // just jumping
+        "6lpSua espada está sendo removida.\n"
+
+    PAGES["+spear"] =
+        "4lpPressione e *solte*   X  para arremessar lanças.\n" +
+        "2lpIsto ativa o modo de mira:  você pode girar para qualquer\n" +
+        "1lpdireção, incluindo diagonais, sem pressionar Shift.\n" +
+        "2lpQuando o modo de mira termina, o arremesso acontece.\n" +
+        "2lpAlvos em movimento sofrem mais dano.\n" +
+        "2lpImportante:  Lanças são fracas contra alvos adjacentes.\n"
+}
+    
+main()
+    </script>
+</body>
+</html>
