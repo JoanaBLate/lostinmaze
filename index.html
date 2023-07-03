@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--  # Copyright (c) 2014-2024 Feudal Code Limitada # -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lost In Maze</title>
+    <meta name="description" content="An action, adventure, puzzle, rpg style, free browser game.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" type="image/png">
+    <style>
+  @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+    </style>
+    <style>
+        /* reset */
+        html, body {
+            height: 100%;
+        }
+        body * {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            vertical-align: top;
+            font-family: inherit;
+        }
+        body {
+            min-width: 360px;
+            max-width: none;
+            margin: 0 auto;
+            text-align: center;
+            color: #222233;
+            background-color: white;
+        }
+        span, img, label, button, input { 
+            display: inline-block;
+            width: auto;
+            overflow: hidden;
+        }
+        button, select, textarea, input {
+            padding: 5px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        button {
+            cursor: pointer;
+        }
+        textarea {
+            resize: none;
+        }
+        img {
+            object-fit: cover;
+            object-position: center;
+            vertical-align: bottom; /* removes white space below image */
+        }
+        hr {
+            height: 1px;
+            background-color: #dddddd;
+        }
+        .notextdeco {
+            text-decoration: none; /* for links */
+        }
+        .shadow {
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 1px rgba(0,0,0,0.2);
+        }
+    </style>
+    <style>
+        /* animation */
+        @keyframes keyframe-spin {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+        @keyframes keyframe-breath {
+            17% { transform: scale(1); }
+            22% { transform: scale(1.1); }
+            27% { transform: scale(1); }
+            32% { transform: scale(1.05); }
+            37% { transform: scale(1); }
+        }
+        @keyframes keyframe-bounce {
+            35% { transform: scale(1); }
+            45% { transform: scale(1.5); }
+            55% { transform: scale(1); }
+            65% { transform: scale(1.3); }
+            75% { transform: scale(1); }
+        }
+        @keyframes keyframe-color {
+               0%  { color: red; }
+            40.0%  { color: white; }
+            60.0%  { color: white; }
+           100.0%  { color: red; }
+        }
+        .anim-breath {
+            animation: keyframe-breath 5s infinite;
+        }
+        .anim-bounce {
+            animation: keyframe-bounce 3s infinite;
+        }
+        .anim-spin {
+            animation: keyframe-spin 3s linear 0s infinite normal;
+        }
+        .anim-grow {
+            transition: all .2s ease-in-out;
+        }
+        .anim-grow:hover {
+            transform: scale(1.1);
+        }
+        .anim-color {
+            animation: keyframe-color 5s infinite;
+        }
+    </style>
+    <!-- PARTICULAR -->
+    <style>
+        body {
+            font-family: Montserrat, "sans serif";
+            background-color: rgb(240,200,40);
+            background-image: url("/images/bg-golden.png");
+        }
+        header {
+            padding: 30px 20px 20px 20px;
+        }
+        .title-img { 
+            max-width: 100%;
+        }
+        .header-subtitle {
+            padding: 6px 0 10px 0;
+            color: black;
+            font-size: clamp(18px, 14px + 0.91vw, 22px);
+            font-weight: 600;
+            background-color: rgb(240,200,40);
+        }
+        .flag {
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .marked-flag {
+            margin-top: -4px;
+            border: 4px dashed red;
+        }
+        .flag-spacer {
+            width: clamp(50px, -105px + 43vw, 240px);
+            height:1px;
+        }
+        .gamebg {
+            width: 100%;
+            min-height: clamp(400px, 228px + 19vw, 500px);
+            text-align: left;
+            padding-top: 200px;
+            padding-left: clamp(20px, -8px + 8vw, 100px);
+            background-image: url("/images/half-screenshot.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center 15%;
+        }
+        .episode-selector {
+            padding: 8px 12px;
+            outline-style: none;
+            border: solid 1px dimgrey;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: rgb(20,10,10);
+            background: darkgrey;
+        }
+        .episode-selector option {
+            font-weight: 600;
+        }
+        .play-button {
+            margin-top: clamp(20px, -4px + 6vw, 50px);
+            padding: clamp(12px, 9px + 0.9vw, 16px);
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            border: solid 1px dimgrey;
+            color: white;
+            background-color: darkgrey;        
+        }
+        .play-button:hover {
+            color: red;
+        }
+        .instructions {
+            padding-bottom: 30px;
+            background-color: rgba(250,240,200);
+        }
+        .box {
+            display: inline-block;
+            width: 100%;
+            padding: 20px 25px 0 20px;
+            text-align: left;
+            font-weight: 500;
+        }
+        footer {
+            display: inline-block;
+            padding: 30px 20px 20px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            background-color: rgb(240,200,40);
+        }
+        footer a {
+            display: inline-block;
+            margin: 0 0 0 20px;
+            font-family: "Rubik";
+            font-weight: 600;
+            font-size: 16px;
+            color: indigo;
+            text-decoration: none;
+        }
+        @media (min-width: 800px) { 
+            .box { max-width: 49%; }
+        }
+        @media (min-width: 1250px) { 
+            .box { width: 600px; }
+            .title-img { margin-left: -80px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="title-img" src="/images/title.png" alt="Lost In Maze"><br>
+        <span class="header-subtitle">
+            An action, adventure, puzzle, rpg style, free browser game
+        </span>
+        <div>
+            <span class="flag marked-flag">
+                <img src="/images/english.png" title="ENGLISH" class="flag" alt="english"
+                     style="cursor:default;">
+            </span>
+            <span class="flag-spacer"></span>
+            <span class="flag">
+                <img src="/images/portuguese.png" title="PORTUGUÊS" class="flag" alt="portuguese"
+                     onclick="window.location='/portuguese/index'">
+             </span>
+        </div>
+    </header>
+    <div class="gamebg" style="border-left:none;">
+        <select id="episode-selector" class="episode-selector shadow" title="select episode">
+        </select>
+        <br>
+        <button id="play-button" class="anim-breath play-button shadow">play episode</button>
+    </div>
+    <div class="instructions">
+        <div class="box">
+            <h2>Requirements</h2>
+            Your browser must be up to date <b>Chrome</b>.<br>
+            You must have a computer with <b>keyboard and normal or big screen</b>.<br>
+            Mouse and joystick have no use.<br><br>
+
+            <h2>Zoom</h2>
+            Zoom out the browser (<b>CTRL  -</b>) if the game frame does not appear completely.<br><br>
+
+            <h2>Full Screen</h2>
+            Press <b>F11</b> to go full screen mode (or to return to normal screen).
+        </div>
+        <div class="box">
+            <h2>Menu / Help / Pause</h2>
+            Press <b>ENTER</b> during game to open menu.<br><br>
+
+            <h2>Tutorial</h2>
+            Repeat the episodes <b>Training Day</b> and <b>Training Night</b>.<br><br>
+
+            <h2>Saving</h2>
+            Your progress is automatically saved at the end of each episode, if the browser is <b>NOT in incognito mode</b>.
+            Your progress will be lost if you clean up the web browser data (cookies).
+        </div>
+    </div>
+    <footer>
+        copyright &copy; 2014 - 2024 <a href="http://www.feudalcode.com" target="_blank">Feudal Code Limitada</a>
+    </footer>
+<script>
+"use strict"
+
+const playButton = document.querySelector("#play-button")
+const episodeSelector = document.querySelector("#episode-selector")
+
+const episodes = [
+    "training-day",
+    "training-night",
+    "ask-for-the-key",
+    "bonfire-trap",
+    "healing-a-friend",
+    "fear-of-the-dark",
+    "frozen-hell",
+    "more-to-come",
+    "cinematic",
+    "map-editor"
+]
+
+const titleOfEpisode = {
+    "training-day": "Training Day",
+    "training-night": "Training Night",
+    "ask-for-the-key": "Ask For The Key",
+    "bonfire-trap": "Bonfire Trap",
+    "healing-a-friend": "Healing A Friend",
+    "fear-of-the-dark": "Fear Of The Dark",
+    "frozen-hell": "Frozen Hell",
+    "more-to-come": "(more to come...)",
+    "cinematic": "(cinematic)",
+    "map-editor": "(map editor)"
+}
+
+var finishedEpisode = "" 
+var maximumEpisode = "" 
+
+// widgets ////////////////////////////////////////////////////////////////////
+
+function setEpisodeSelector() {
+    let shallDisable = false
+    // filling
+    var off = episodes.length
+    for (var n = 0; n < off; n++) {
+        var episode = episodes[n]
+        var option = document.createElement("option")
+        option.value = episode
+        option.text = titleOfEpisode[episode]
+        episodeSelector.options.add(option)
+        if (episode == "cinematic") { continue }
+        if (episode == "map-editor") { continue }
+        if (episode == "more-to-come") { continue }
+        if (shallDisable) { option.disabled = true; continue }
+        if (episode == maximumEpisode) { shallDisable = true }
+    }
+    // selecting
+    var index = episodes.indexOf(finishedEpisode) + 1
+    if (index > episodes.length - 1) { index = episodes.length - 1 }
+    episodeSelector.value = episodes[index]
+}
+
+function setButtonPlay() {
+    playButton.onclick = function () { 
+        const episode = document.getElementById("episode-selector").value
+        window.location = "/english/" + episode // + ".html"
+    }
+}
+
+// local storage //////////////////////////////////////////////////////////////
+
+function getFinishedEpisodeFromLocalStorage() {
+    var episode = localStorage["finished-episode"]
+    return episodes.includes(episode) ? episode : ""
+}
+
+function getMaximumEpisodeFromLocalStorage() {
+    var episode = localStorage["maximum-episode"]
+    return episodes.includes(episode) ? episode : episodes[0]
+}
+
+function tryExpandMaximumEpisode() {
+    var max = episodes.indexOf(maximumEpisode)  
+    var fin = episodes.indexOf(finishedEpisode) // OK to be -1
+    if (max > fin) { return } // player just started or replayed old episode
+    // allowing next episode to be played
+    var index = fin + 1
+    if (index > episodes.length - 1) { index = episodes.length - 1 } 
+    maximumEpisode = episodes[index]
+    localStorage["maximum-episode"] = maximumEpisode
+}
+
+// main ///////////////////////////////////////////////////////////////////////
+
+function isFramed() {
+    // when framed: Uncaught SecurityError stops execution!:
+    // console.log(window.top.location.hostname)
+    //
+    if (window.top == window.self) { return false }
+    //
+    window.top.location.replace(window.self.location.href) // chrome does not redirect before first click
+    return true
+}
+
+function maybeAlertNotComputer() {
+    var ok = true
+    if (typeof window.orientation != "undefined") { ok = false }
+    if (screen.height < 700) { ok = false }
+    if (screen.width  < 800) { ok = false }
+    if (ok) { return true }
+    alert("You need a computer to play this game.")
+    return false
+}
+
+function main() {
+ // document.body.onselectstart = function () { return false }
+    if (isFramed()) { return }
+    //
+    localStorage["fresh-start"] = "true" // controls if may skip introduction or not //
+    //
+    finishedEpisode = getFinishedEpisodeFromLocalStorage()
+    maximumEpisode  = getMaximumEpisodeFromLocalStorage()
+    tryExpandMaximumEpisode()
+    //
+    setEpisodeSelector()
+    setButtonPlay()
+    maybeAlertNotComputer()
+}
+
+main()
+</script>
+</body>
+</html>
