@@ -4621,7 +4621,10 @@ function hasGoodOrigin() {
     //
     const s = document.referrer.replace(window.location.protocol + "//", "")
     const hostname = "lostinmaze.com"
-    return s.startsWith(hostname)
+    if (s.startsWith(hostname)) { return true }
+    const hostname2 = "lostinmaze.onrender.com"
+    if (s.startsWith(hostname2)) { return true }
+    return false
 }
 
 function restart() {
