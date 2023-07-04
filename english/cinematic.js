@@ -207,7 +207,7 @@ function runTheEnd() {
 
 function runTheEnd2() {
     playMusic("failure")
-    displayBlack(PAGES["+mm"], [], null)
+    displayBlack(PAGES["+mm"], ["enter"], goHome)
 }
 
 function runstand(creature) {
@@ -297,23 +297,24 @@ function setEpisodePages() {
     PAGES["+message"] =
         "9laThe message is this:\n" +
         "2cpThe Maze Master is challenging\n" +
-        "1cpall  creatures  to  enter  his  maze\n" +
+        "1cpall  creatures  to  enter  his  maze.\n" +
         "2laHow cool is that?!\n"
 
     PAGES["+redirect"] =
         "9laIf you are interested in the challenge,\n" +
         "2laredirect your space browser to this coordinate:\n" +
-        "2lawww.lostinmaze.com\n"
+        "2lalostinmaze.com\n"
 
     PAGES["+failure"] =
         "9laMy mission will be considered a failure\n" +
         "2laif you don't land there in the next 10 seconds...\n" +
-        "2lawww.lostinmaze.com\n"
+        "2lalostinmaze.com\n"
 
     PAGES["+mm"] =
-        "9lmThe Maze Master says:\n" +
+        "7lmThe Maze Master says:\n" +
         "2lmYou failed to accomplish the mission.\n" +
         "2lmThe maze will be reset.\n" +
-        "2lmYou will be reset."
+        "2lmYou will be reset.\n" +
+        pagePressEnter
 }
 
