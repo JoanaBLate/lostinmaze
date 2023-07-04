@@ -11,3 +11,5 @@ Sounds and music: currently only music (at success or failure of each mission).
 No external library was used.
 
 Copyright: All rights reserved to the Lost In Maze creator. The game is on Github for you to get some ideas and have fun playing.
+
+https://lostinmaze.com
