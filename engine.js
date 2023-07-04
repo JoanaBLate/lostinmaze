@@ -4620,7 +4620,7 @@ function hasGoodOrigin() {
     if (document.referrer == window.location.href) { return true } // episode was restarted
     //
     const s = document.referrer.replace(window.location.protocol + "//", "")
-    const hostname = "www.lostinmaze.com"
+    const hostname = "lostinmaze.com"
     return s.startsWith(hostname)
 }
 
