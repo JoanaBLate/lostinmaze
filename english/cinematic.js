@@ -210,10 +210,6 @@ function runTheEnd2() {
     displayBlack(PAGES["+mm"], ["enter"], goHome)
 }
 
-function runstand(creature) {
-    creature.bmpleg = "stand"
-}
-
 // SCRIPT /////////////////////////////////////////////////////////////////////
 
 function setPuppet() {
